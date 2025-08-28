@@ -1,7 +1,6 @@
 1. Loads the module Apptainer. 
-	<pre>
+
 	```module load apptainer/1.3.4-gcc-14.2.0-spxhran```
-	</pre>
  
 	> **Info:** Apptainer is an alternative from Docker. Apptainer are normally used in HPC environment because their containers do not require root access privileges unlike Docker.
 	
