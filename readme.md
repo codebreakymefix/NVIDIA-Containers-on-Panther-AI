@@ -49,6 +49,6 @@
   	module load apptainer/1.3.4-gcc-14.2.0-g7o5w4g
   	apptainer exec --nv --cleanenv pytorch_23.08-py3.sif python pathhere/pythonfile.py"
 	```
-> **Info:** Did not test this command.
+	> **Info:** Did not test this command.
 
 
