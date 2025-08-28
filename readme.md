@@ -1,20 +1,20 @@
-# NVIDA Containers on Panther AI
+# Loading NVIDIA Containers on Panther AI
 
-1. Loads the module Apptainer.
+1. Loads Apptainer module.
 
 	```bash
  	module load apptainer/1.3.4-gcc-14.2.0-spxhran
  	```
  
-	> **Info:** Apptainer is an alternative from Docker. Apptainer are normally used in HPC environment because their containers do not require root access privileges unlike Docker.
+	> **Info:** In HPC environments, Apptainer is used because it’s a rootless alternative to Docker.
 	
-2. Pulls NVIDIA Pytorch docker container.
+2. Pulls the NVIDIA Pytorch docker container.
 	
  	```bash
   	apptainer pull docker://nvcr.io/nvidia/pytorch:23.08-py3
    ```
 
-	> **Tip:** You can find more NVIDIA Docker containers [here](https://catalog.ngc.nvidia.com/containers?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=).
+	> **Tip:** You can find more NVIDIA docker containers [here](https://catalog.ngc.nvidia.com/containers?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=).
 
 3. We run an interactive terminal in one of the GPU nodes.
 	
@@ -22,7 +22,7 @@
 	srun -w gpu03 -p gpu1 --pty bash -i
   	```
 
-	> **Tip:** You can check if you are in the GPU by just seeing if there is 'gpu03' after your username in the terminal.
+	> **Tip:** You can check if you are in the GPU Node if there is 'gpu03' after your username in the terminal.
 
 4. Unload/reload different Apptainer build.
 	
@@ -37,9 +37,7 @@
    	apptainer exec --nv --cleanenv pytorch_23.08-py3.sif python -c "import torch; print(torch.__version__, torch.version.cuda)"
 	```
 
-	> 	**Tip:** This is how you run python in the sbatch file, just replace everything after `python` with the path to your python file.
-
-6. _(Optional)_ You can open up an interactive terminal in case you need to do some quick installations.
+6. _(Optional)_ You can open up an interactive terminal for quick installations.
 	
  	```bash
 	apptainer shell --nv --cleanenv pytorch_23.08-py3.sif
